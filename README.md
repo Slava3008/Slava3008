@@ -4,11 +4,11 @@ import pandas as pd
 
 
 def collect_user_rates(user_login):
-    page_num = 15
+    page_num = 1
     data = []
 
     while True:
-        url = f'https://letterboxd.com/rfeldman9/films/diary/'
+        url = f'https://letterboxd.com/{user_login}/films/diary/page/{page_num}/'  
         html_content = requests.get(url).text
         soup = BeautifulSoup(html_content, 'lxml')
 
@@ -29,7 +29,7 @@ def collect_user_rates(user_login):
 
             data.append({'film_name': film_name, 'release_date': release_date, 'rating': rating})
 
-        page_num += 1
+        page_num += 1  
 
     return data
 
