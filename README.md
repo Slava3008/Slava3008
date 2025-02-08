@@ -8,7 +8,7 @@ def collect_user_rates(user_login):
     data = []
 
     while True:
-        url = f'https://letterboxd.com/{user_login}/films/diary/page/{page_num}/'
+        url = f'https://letterboxd.com/rfeldman9/films/diary/'
         html_content = requests.get(url).text
         soup = BeautifulSoup(html_content, 'lxml')
 
